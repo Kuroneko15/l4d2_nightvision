@@ -1,4 +1,4 @@
-## Onigrinal Plugin: https://forums.alliedmods.net/showthread.php?p=1534293
+Onigrinal Plugin: https://forums.alliedmods.net/showthread.php?p=1534293
 * Changelog:
 v1.0
 - Add plugin
