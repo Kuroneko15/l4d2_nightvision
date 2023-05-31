@@ -51,12 +51,12 @@ public Action OnPlayerRunCmd(int client, int &buttons, int &impuls, float vel[3]
 					PressTime[client] = time;
 				}
 		}
-		return Plugin_Stop;
+		return Plugin_Continue;
 }
 
 void SwitchNightVision(int client)
 {
-	static float Time = 2.5;
+	static float Time = 2.0;
 	char Word[128]
 	int d = GetEntProp(client, Prop_Send, "m_bNightVisionOn");
 	if(d == 0)
@@ -76,7 +76,7 @@ void SwitchNightVision(int client)
 			DispatchKeyValue(entity, "hint_color", Word);
 			DispatchSpawn(entity);
 
-			AcceptEntityInput(entity, "ShowHint", -1, -1, 0);
+			AcceptEntityInput(entity, "ShowHint", client);
 			FormatEx(Word, sizeof(Word), "OnUser1 !self:Kill::%f:1", Time);
 			SetVariantString(Word);
 			AcceptEntityInput(entity, "AddOutput", -1, -1, 0);
@@ -99,7 +99,8 @@ void SwitchNightVision(int client)
 			DispatchKeyValue(entity, "hint_color", Word);
 			DispatchSpawn(entity);
 
-			AcceptEntityInput(entity, "ShowHint", -1, -1, 0);
+			// AcceptEntityInput(entity, "ShowHint", -1, -1, 0); // Target hint
+			AcceptEntityInput(entity, "ShowHint", client);
 			FormatEx(Word, sizeof(Word), "OnUser1 !self:Kill::%f:1", Time);
 			SetVariantString(Word);
 			AcceptEntityInput(entity, "AddOutput", -1, -1, 0);
